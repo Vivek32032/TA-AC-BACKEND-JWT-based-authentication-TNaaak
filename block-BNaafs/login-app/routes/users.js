@@ -7,12 +7,13 @@ router.get('/', function(req, res, next) {
   res.send({ message: 'User Info' });
 });
 
-// Registration 
+// Registration
 
 router.post('/register', async (req, res, next) => {
   try {
     var user =  await User.create(req.body);
     var token = await user.signToken();
+    console.log(token)
     res.status(201).json({  user: user.userJSON(token) });
   } catch (error) {
     next(error);
@@ -37,6 +38,7 @@ router.post('/login', async (req, res, next) => {
     }
     // create token
     var token = await user.signToken();
+    console.log(token)
     // Passing to token and some user info to the logged in user
     res.json({  user: user.userJSON(token) });
   } catch (error) {

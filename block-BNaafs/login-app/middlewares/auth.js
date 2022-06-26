@@ -3,7 +3,6 @@ require('dotenv').config();
 
 module.exports = {
     verifyToken: async (req, res, next) => {
-        // console.log(req.headers);
         var token = req.headers.authorization;
         try {
             if(token){
