@@ -18,7 +18,7 @@ router.get('/', auth.verifyToken, function(req, res, next) {
   res.send({ message: 'This is a protected Route' });
 });
 
-// Registration 
+// User Registration 
 
 router.post('/register', async (req, res, next) => {
   try {
